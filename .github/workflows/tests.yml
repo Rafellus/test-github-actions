@@ -24,3 +24,10 @@ jobs:
       uses: lycheeverse/lychee-action@v1.0.8
       #with:
         # args: # optional, default is --verbose --no-progress *.md
+        
+    - name: Check links with linkcheck
+      uses: filiph/linkcheck@v2.0.15+1
+      with:
+        # The arguments you would pass to the linkcheck tool
+        arguments: -e
+        
