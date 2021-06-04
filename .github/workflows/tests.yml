@@ -20,9 +20,5 @@ jobs:
   linkChecker:
     runs-on: ubuntu-latest
     steps:
-    - name: Check links with linkcheck
-      uses: filiph/linkcheck@v2.0.15+1
-      with:
-        # The arguments you would pass to the linkcheck tool
-        arguments: -e
-        
+    - name: Markup Link Checker (mlc)
+      uses: becheran/mlc@v0.14.3
