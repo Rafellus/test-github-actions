@@ -1,0 +1,26 @@
+# Workflow for checking broken links on md files.
+
+name: Tests
+
+# Controls when the action will run. 
+on:
+  # Trigger only for master branch. Check if someone broke a link before push & pull
+  schedule:
+    - cron: "00 18 * * *"
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Lychee Broken Link Checker
+      uses: lycheeverse/lychee-action@v1.0.8
+      #with:
+        # args: # optional, default is --verbose --no-progress *.md
